@@ -27,13 +27,29 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px 0;
+    padding: 20px 0;
     border-bottom: 1px solid var(--color-border);
+    background-color: #fcfcfc;
 }
 
-h1 { margin: 0 0 10px 0; font-size: 2rem; letter-spacing: 2px; }
+h1 {
+    margin: 0 0 15px 0;
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    background: linear-gradient(45deg, var(--color-exact), var(--color-present));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+}
 
-#setup { display: flex; gap: 10px; }
+#setup {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
 button, select { padding: 10px; font-size: 16px; border-radius: 4px; border: 1px solid var(--color-border); }
 button { background-color: var(--color-text); color: white; font-weight: bold; cursor: pointer; }
 
@@ -141,3 +157,43 @@ button { background-color: var(--color-text); color: white; font-weight: bold; c
 .key.exact { background-color: var(--color-exact); color: white; }
 .key.present { background-color: var(--color-present); color: white; }
 .key.absent { background-color: var(--color-absent); color: white; }
+
+#language-select {
+    padding: 10px 16px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 20px;
+    border: 2px solid var(--color-border);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#language-select:hover, #language-select:focus {
+    border-color: var(--color-exact);
+    box-shadow: 0 0 0 3px rgba(106, 170, 100, 0.15);
+}
+
+#start-btn {
+    padding: 10px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--color-text);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+#start-btn:hover {
+    background-color: #333333;
+}
+
+#start-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+}
