@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Serendle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Serendle</h1>
+        <div id="setup">
+            <select id="language-select">
+                <option value="en">English</option>
+                <option value="it">Italian</option>
+            </select>
+            <button id="start-btn">Start Game</button>
+        </div>
+    </header>
+
+    <div id="message-container" class="hidden"></div>
+    
+    <main id="board-container">
+        <div id="board"></div>
+    </main>
+
+    <div id="keyboard-container"></div>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>

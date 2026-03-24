@@ -1,0 +1,143 @@
+:root {
+    --color-exact: #6aaa64;
+    --color-present: #c9b458;
+    --color-absent: #6d6767;
+    --color-border: #d3d6da;
+    --color-bg: #ffffff;
+    --color-text: #1a1a1b;
+    --color-key-bg: #1c1c1c;
+}
+
+* { box-sizing: border-box; touch-action: manipulation; }
+
+body {
+    font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+h1 { margin: 0 0 10px 0; font-size: 2rem; letter-spacing: 2px; }
+
+#setup { display: flex; gap: 10px; }
+button, select { padding: 10px; font-size: 16px; border-radius: 4px; border: 1px solid var(--color-border); }
+button { background-color: var(--color-text); color: white; font-weight: bold; cursor: pointer; }
+
+#message-container {
+    position: absolute;
+    top: 15%;
+    background-color: var(--color-text);
+    color: white;
+    padding: 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    z-index: 10;
+    transition: opacity 0.3s;
+}
+#message-container.hidden { opacity: 0; pointer-events: none; }
+
+#board-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+}
+
+#board { display: grid; grid-template-rows: repeat(6, 1fr); gap: 5px; }
+
+.row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 5px; }
+
+.cell {
+    width: 14vw;
+    height: 14vw;
+    max-width: 62px;
+    max-height: 62px;
+    border: 2px solid var(--color-border);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Animations */
+.cell.pop { animation: popIn 0.1s; }
+.row.shake { animation: shake 0.5s; }
+.cell.flip { animation: flipIn 0.5s ease-in forwards; }
+
+@keyframes popIn {
+    from { transform: scale(0.8); opacity: 0; }
+    40% { transform: scale(1.1); }
+}
+
+@keyframes shake {
+    10%, 90% { transform: translateX(-1px); }
+    20%, 80% { transform: translateX(2px); }
+    30%, 50%, 70% { transform: translateX(-4px); }
+    40%, 60% { transform: translateX(4px); }
+}
+
+@keyframes flipIn {
+    0% { transform: rotateX(0); }
+    50% { transform: rotateX(-90deg); }
+    100% { transform: rotateX(0); }
+}
+
+/* Colors applied after flip */
+.cell.exact { background-color: var(--color-exact); border-color: var(--color-exact); color: white; }
+.cell.present { background-color: var(--color-present); border-color: var(--color-present); color: white; }
+.cell.absent { background-color: var(--color-absent); border-color: var(--color-absent); color: white; }
+
+/* Keyboard */
+#keyboard-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.keyboard-row { display: flex; justify-content: center; gap: 6px; }
+
+.key {
+    background-color: var(--color-key-bg);
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    flex: 1;
+    height: 58px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    text-transform: uppercase;
+    transition: background-color 0.2s;
+}
+
+.key.large { flex: 1.5; font-size: 1rem; }
+.key:active { transform: scale(0.95); }
+
+.key.exact { background-color: var(--color-exact); color: white; }
+.key.present { background-color: var(--color-present); color: white; }
+.key.absent { background-color: var(--color-absent); color: white; }
