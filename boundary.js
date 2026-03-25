@@ -1,4 +1,4 @@
-import { LetterState } from './Entity.js';
+import { LetterState } from './entity.js';
 
 export class WebBoundary {
     constructor(controller) {

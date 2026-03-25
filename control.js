@@ -1,4 +1,4 @@
-import { LetterState, GameSession } from './Entity.js';
+import { LetterState, GameSession } from './entity.js';
 
 export class GameController {
     constructor() {
